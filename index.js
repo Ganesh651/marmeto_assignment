@@ -91,13 +91,14 @@ const createAndAppendProducts = (product) => {
 }
 
 const getProducts = async () => {
+  productList.style.display = "none"
   loader.classList.add("loader")
   loader.textContent = "Loading..."
   const response = await fetch("https://mocki.io/v1/0934df88-6bf7-41fd-9e59-4fb7b8758093")
   const fetchedData = await response.json()
   loader.textContent = ""
+  productList.style.display = "block"
   const data = fetchedData.data
-
   for (let eachItem of data) {
     createAndAppendProducts(eachItem)
   }
