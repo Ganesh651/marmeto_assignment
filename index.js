@@ -5,6 +5,19 @@ const loader = document.getElementById("loader")
 const searchInput = document.getElementById("searchInput")
 
 
+listStyle.onclick = () => {
+  console.log("list clicked")
+  productList.classList.remove("product-grid-container")
+  productList.classList.add("product-list-container")
+}
+
+gridStyle.onclick = () => {
+  console.log("grid clicked")
+  productList.classList.remove("product-list-container")
+  productList.classList.add("product-grid-container")
+}
+
+
 
 const createAndAppendProducts = (product) => {
   const { product_image, product_title, product_badge, product_variants } = product
@@ -72,21 +85,6 @@ const createAndAppendProducts = (product) => {
   }
 
   productContainer.appendChild(productDetailsContainer)
-
-  listStyle.onclick = () => {
-    productContainer.classList.remove("product-container-grid")
-    productList.classList.remove("product-grid-container")
-    productContainer.classList.add("product-container")
-    productList.classList.add("product-list-container")
-  }
-
-  gridStyle.onclick = () => {
-    productContainer.classList.remove("product-container")
-    productList.classList.remove("product-list-container")
-    productContainer.classList.add("product-container-grid")
-    productList.classList.add("product-grid-container")
-
-  }
   productList.appendChild(productContainer)
 }
 
